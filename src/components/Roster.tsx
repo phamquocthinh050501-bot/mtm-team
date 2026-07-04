@@ -1,4 +1,3 @@
-import React from "react";
 import { MOCK_PLAYERS } from "../data/mockData";
 
 export const Roster = () => {

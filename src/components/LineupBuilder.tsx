@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MOCK_PLAYERS } from "../data/mockData";
 // import type { Player } from "../types";
 

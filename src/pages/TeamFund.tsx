@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { MOCK_FUND_MEMBERS, MOCK_TRANSACTIONS } from "../data/mockData";
 
 export const TeamFund = () => {

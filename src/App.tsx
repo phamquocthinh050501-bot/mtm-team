@@ -15,6 +15,8 @@ import { MatchForm } from "./components/MatchForm";
 import { MOCK_MATCHES } from "./data/mockData";
 import { MatchCard } from "./components/MatchCard";
 import { LineupBuilder } from "./components/LineupBuilder";
+import { FootballPreloader } from "./components/FootballPreloader";
+import { PageWrapper } from "./components/PageWrapper";
 
 // Layout bọc ngoài - Đã nâng cấp Responsive (Sidebar trên Desktop, Bottom Nav trên Mobile)
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -178,22 +180,27 @@ const MatchDetailPage = () => {
 // Khởi tạo App với Routes đã được gắn Component
 function App() {
   return (
-    <BrowserRouter>
-      <DashboardLayout>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/matches" element={<MatchesPage />} />
-          <Route path="/matches/new" element={<MatchForm />} />
-          <Route path="/matches/:matchId" element={<MatchDetailPage />} />
-          <Route path="/members" element={<Roster />} />
+    <>
+      <FootballPreloader />
+      <BrowserRouter>
+        <DashboardLayout>
+          <PageWrapper>
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/matches" element={<MatchesPage />} />
+              <Route path="/matches/new" element={<MatchForm />} />
+              <Route path="/matches/:matchId" element={<MatchDetailPage />} />
+              <Route path="/members" element={<Roster />} />
 
-          {/* THÊM TUYẾN ĐƯỜNG ROUTE MỚI CHO SA BÀN TẠI ĐÂY */}
-          <Route path="/lineup" element={<LineupBuilder />} />
+              {/* THÊM TUYẾN ĐƯỜNG ROUTE MỚI CHO SA BÀN TẠI ĐÂY */}
+              <Route path="/lineup" element={<LineupBuilder />} />
 
-          <Route path="/fund" element={<TeamFund />} />
-        </Routes>
-      </DashboardLayout>
-    </BrowserRouter>
+              <Route path="/fund" element={<TeamFund />} />
+            </Routes>
+          </PageWrapper>
+        </DashboardLayout>
+      </BrowserRouter>
+    </>
   );
 }
 
